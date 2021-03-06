@@ -68,7 +68,7 @@ public final class FileHelper {
     private static final String CREATE_FILE_QUESTION_MESSAGE =
             "File not found:\n%s\n\nDo you want to create the file?";
     private static final String OPERATION_ERROR_MESSAGE =
-            "An error occured during the %s operation:\n%s";
+            "An error occured during the %s operation:%n%s";
     private static final String FILE_OVERWRITE_QUESTION_MESSAGE =
             "File is already exists:\n%s\n\nDo you want to overwrite?";
 

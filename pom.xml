@@ -106,11 +106,11 @@
 				<executions>
 					<execution>
 					 	<configuration>
-					 		<classFilesDirectory></classFilesDirectory>
-				         	<outputDirectory></outputDirectory>
+					 		<classFilesDirectory/>
+				         	<outputDirectory/>
 				         	<spotbugsXmlOutputDirectory>spotbugs/tests</spotbugsXmlOutputDirectory>
-				         	<testClassFilesDirectory></testClassFilesDirectory>	
-				         	<xmlOutput></xmlOutput>
+				         	<testClassFilesDirectory/>	
+				         	<xmlOutput/>
 				         	<xmlOutputDirectory>spotbugs/tests</xmlOutputDirectory>
 				        </configuration>
 						<phase>compile</phase>

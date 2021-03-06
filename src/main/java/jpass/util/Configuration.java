@@ -50,9 +50,18 @@ public final class Configuration {
         try {
             File filePath = new File(getConfigurationFolderPath(), "jpass.properties");
             if (filePath.exists() && filePath.isFile()) {
-                InputStream is = new FileInputStream(filePath);
-                properties.load(is);
-                is.close();
+            	InputStream is = null; 
+                try {
+                	is = new FileInputStream(filePath);
+	                properties.load(is);
+	                is.close();
+                }catch(Exception e) {
+                	//just to close the Stream even if there is an error
+                }finally {
+                	if(is != null) {
+                		is.close();
+                	}
+                }
             }
         } catch (Exception e) {
             LOG.log(Level.WARNING, "An error occurred during loading configuration.", e);
