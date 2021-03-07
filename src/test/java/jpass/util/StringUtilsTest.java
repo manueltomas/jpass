@@ -7,32 +7,7 @@ import org.junit.Test;
 
 public class StringUtilsTest {
 
-	/*
-	 * stripNonValidXMLCharacters
-	 * 
-	 * This method ensures that the output String has only valid XML unicode characters
-	 * 
-	 * 1. Parameters:
-	 * in
-	 * 
-	 * 2. Characteristics:
-	 * in -> null, empty, N number of Y chars (N: number from 1 to +infinity; Y: any char from ASCII table)
-	 * 
-	 * 3. Restrictions:
-	 * There are no special restrictions defined by the method
-	 * Categories:
-	 * in - null, empty, (!empty && !containsInvalid) or (!empty && containsInvalid).
-	 * 
-	 * 4. Combinations:
-	 * in - null -> empty
-	 * in - empty -> empty
-	 * in - !empty && !containsInvalid -> string without invalid xml characters
-	 * in - !empty && containsInvalid -> string without invalid xml characters
-	 */
 	
-	/**
-	 * Attempts to strip a null object which, according to the method documentation, should return an empty string 
-	 */
 	@Test
 	public void shouldStripNullTest() {
 		String in = null;
@@ -43,10 +18,7 @@ public class StringUtilsTest {
 		assertEquals(expected, result);
 		
 	}
-	
-	/**
-	 * Attempts to strip a empty string which, according to the method documentation, should return an empty string 
-	 */
+
 	@Test
 	public void shouldStripEmptyTest() {
 		String in = "";
@@ -57,11 +29,7 @@ public class StringUtilsTest {
 		assertEquals(expected, result);
 		
 	}
-	
-	/**
-	 * Attempts to strip a string without invalid xml characters which, 
-	 * according to the method documentation, should return an string without invalid xml characters 
-	 */
+
 	@Test
 	public void shouldStripNotEmptyHasNotInvalidTest() {
 		char[] string = {'H','e','l','l','o','!'};
@@ -86,11 +54,7 @@ public class StringUtilsTest {
 		assertTrue(expected);
 		
 	}
-	
-	/**
-	 * Attempts to strip a string with invalid xml characters which, 
-	 * according to the method documentation, should return an string without invalid xml characters 
-	 */
+
 	@Test
 	public void shouldStripNotEmptyHasInvalidTest() {
 		char[] string = {'H','e','l','l',(char) 0xB,'o','!'};
