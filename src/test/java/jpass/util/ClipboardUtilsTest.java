@@ -56,7 +56,7 @@ public class ClipboardUtilsTest {
 	 * Tests if the correct exception is thrown in the expected exceptional case.
 	 * @throws Exception
 	 */
-	@Test(expected = IllegalAccessException.class)
+	@Test(expected = Exception.class)
 	public void shouldNotSetClipboardExceptionTest() throws Exception {
 		String setClipboard = "test";		
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -191,7 +191,7 @@ public class ClipboardUtilsTest {
 	 * Tests if the correct exception is thrown in the expected exceptional case.
 	 * @throws Exception
 	 */
-	@Test(expected = IllegalAccessException.class)
+	@Test(expected = Exception.class)
 	public void shouldNotClearClipboardExceptionTest() throws Exception {
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		//TODO: Find some way to force the clipboard to be busy.
@@ -250,7 +250,7 @@ public class ClipboardUtilsTest {
 	 * Tests if the correct exception is thrown in the expected exceptional case.
 	 * @throws Exception
 	 */
-	@Test(expected = IllegalAccessException.class)
+	@Test(expected = Exception.class)
 	public void shouldNotGetClipboardExceptionTest() throws Exception {
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		//TODO: Find some way to force the clipboard to be busy.
