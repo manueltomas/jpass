@@ -129,18 +129,6 @@ public class StringUtilsTest {
 	}
 	
 	@Test
-	public void shouldStripChar0x20PlusOneTest() {
-		char[] string = {'a',(char) (0x20+1),'a'};
-		String in = new String(string);
-		
-		String result = StringUtils.stripNonValidXMLCharacters(in);
-		
-		String expected = new String(string);
-		
-		assertEquals(expected, result);		
-	}
-	
-	@Test
 	public void shouldStripChar0x20MinusOneTest() {
 		char[] string = {'a',(char) (0x20-1),'a'};
 		String in = new String(string);
@@ -191,18 +179,6 @@ public class StringUtilsTest {
 	}
 	
 	@Test
-	public void shouldStripChar0xE000PlusOneTest() {
-		char[] string = {'a',(char) (0xE000+1),'a'};
-		String in = new String(string);
-		
-		String result = StringUtils.stripNonValidXMLCharacters(in);
-		
-		String expected = new String(string);
-		
-		assertEquals(expected, result);		
-	}
-	
-	@Test
 	public void shouldStripChar0xE000MinusOneTest() {
 		char[] string = {'a',(char) (0xE000-1),'a'};
 		String in = new String(string);
@@ -243,18 +219,6 @@ public class StringUtilsTest {
 	@Test
 	public void shouldStripChar0x10000Test() {
 		char[] string = {'a',(char) 0x10000,'a'};
-		String in = new String(string);
-		
-		String result = StringUtils.stripNonValidXMLCharacters(in);
-		
-		String expected = new String(string);
-		
-		assertEquals(expected, result);		
-	}
-	
-	@Test
-	public void shouldStripChar0x10000PlusOneTest() {
-		char[] string = {'a',(char) (0x10000+1),'a'};
 		String in = new String(string);
 		
 		String result = StringUtils.stripNonValidXMLCharacters(in);
