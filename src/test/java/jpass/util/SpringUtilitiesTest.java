@@ -12,8 +12,8 @@ import org.junit.Test;
 public class SpringUtilitiesTest {
 
 	@Test
-	public void shouldNotWorkEmptyContainer() {
-		assertThrows(Exception.class, () -> {
+	public void shouldNotWorkEmptyContainerTest() {
+		assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
 			Panel container = new Panel();
 			container.setLayout(new SpringLayout());
 			SpringUtilities.makeGrid(container, 0, 0, 0, 0, 0, 0);
@@ -21,8 +21,8 @@ public class SpringUtilitiesTest {
 	}
 	
 	@Test
-	public void shouldNotWorkZeroAreaSize() {
-		assertThrows(Exception.class, () -> {
+	public void shouldNotWorkZeroAreaSizeTest() {
+		assertThrows(NullPointerException.class, () -> {
 			Panel container = new Panel();
 			container.add(new Button("Button 1"));
 			container.setLayout(new SpringLayout());
@@ -31,7 +31,7 @@ public class SpringUtilitiesTest {
 	}
 	
 	@Test
-	public void shouldWorkPositiveAreaSize() {
+	public void shouldWorkPositiveAreaSizeTest() {
 		Panel container = new Panel();
 		container.add(new Button("Button 1"));
 		container.setLayout(new SpringLayout());
@@ -39,8 +39,8 @@ public class SpringUtilitiesTest {
 	}
 	
 	@Test
-	public void shouldNotPositiveAreaSizeGreaterThanComponents() {
-		assertThrows(Exception.class, () -> {
+	public void shouldNotPositiveAreaSizeGreaterThanComponentsTest() {
+		assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
 			Panel container = new Panel();
 			container.add(new Button("Button 1"));
 			container.add(new Button("Button 2"));
@@ -53,7 +53,7 @@ public class SpringUtilitiesTest {
 	}
 	
 	@Test
-	public void shouldWorkPositiveAreaSizeGreaterThanComponents() {
+	public void shouldWorkPositiveAreaSizeGreaterThanComponentsTest() {
 		Panel container = new Panel();
 		container.add(new Button("Button 1"));
 		container.add(new Button("Button 2"));
