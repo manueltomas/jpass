@@ -265,7 +265,7 @@ public class StringUtilsTest {
 	}
 	
 ///////////////////////////////////CATEGORY-PARTITION///////////////////////////////////
-	/*@Test
+	@Test
 	public void shouldStripNullTest() {
 		String in = null;
 		
@@ -274,7 +274,7 @@ public class StringUtilsTest {
 		
 		assertEquals(expected, result);
 		
-	}*/
+	}
 
 	@Test
 	public void shouldStripEmptyTest() {
