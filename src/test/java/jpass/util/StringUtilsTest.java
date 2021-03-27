@@ -216,17 +216,17 @@ public class StringUtilsTest {
 	
 	////////////////////////////////// [0x10000, 0x10FFFF] ////////////////////////////////// 
 	
-	/*@Test
-	public void shouldStripChar0x10000Test() {
-		char[] string = {'a',(char) 0x10000,'a'};
-		String in = new String(string);
-		
-		String result = StringUtils.stripNonValidXMLCharacters(in);
-		
-		String expected = new String(string);
-		
-		assertEquals(expected, result);		
-	}*/
+//	@Test
+//	public void shouldStripChar0x10000Test() {
+//		char[] string = {'a',(char) 0x10000,'a'};
+//		String in = new String(string);
+//		
+//		String result = StringUtils.stripNonValidXMLCharacters(in);
+//		
+//		String expected = new String(string);
+//		
+//		assertEquals(expected, result);		
+//	}
 	
 	@Test
 	public void shouldStripChar0x10000MinusOneTest() {
@@ -240,17 +240,17 @@ public class StringUtilsTest {
 		assertEquals(expected, result);
 	}
 	
-	/*@Test
-	public void shouldStripChar0x10FFFFTest() {
-		char[] string = {'a',(char) 0x10FFFF,'a'};
-		String in = new String(string);
-		
-		String result = StringUtils.stripNonValidXMLCharacters(in);
-		
-		String expected = new String(string);
-		
-		assertEquals(expected, result);		
-	}*/
+//	@Test
+//	public void shouldStripChar0x10FFFFTest() {
+//		char[] string = {'a',(char) 0x10FFFF,'a'};
+//		String in = new String(string);
+//		
+//		String result = StringUtils.stripNonValidXMLCharacters(in);
+//		
+//		String expected = new String(string);
+//		
+//		assertEquals(expected, result);		
+//	}
 	
 	@Test
 	public void shouldStripChar0x10FFFFPlusOneTest() {
@@ -265,7 +265,7 @@ public class StringUtilsTest {
 	}
 	
 ///////////////////////////////////CATEGORY-PARTITION///////////////////////////////////
-	@Test
+	/*@Test
 	public void shouldStripNullTest() {
 		String in = null;
 		
@@ -274,7 +274,7 @@ public class StringUtilsTest {
 		
 		assertEquals(expected, result);
 		
-	}
+	}*/
 
 	@Test
 	public void shouldStripEmptyTest() {
