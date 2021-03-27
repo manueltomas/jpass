@@ -5,9 +5,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import jpass.xml.bind.Entries;
@@ -15,37 +15,50 @@ import jpass.xml.bind.Entry;
 
 public class DataModelTest {
 
-	@Test
-	public void shouldExerciseEmptyDataModelTest() throws IOException, DocumentProcessException {
-		DataModel dm = DataModel.getInstance();		
-		
-		//Test entries
-		dm.setEntries(new Entries());		
-		assertEquals(new ArrayList<Entry>(), dm.getEntries().getEntry());
-		
-		//Test filename
-		String filename = "empty";
-		dm.setFileName(filename);
-		assertEquals(filename, dm.getFileName());
-		
-		//Test modified flag
-		dm.setModified(true);
-		assertTrue(dm.isModified());
-		
-		//Test password
-		byte[] passArray = new byte[1];
-		dm.setPassword(passArray);
-		assertEquals(passArray[0], dm.getPassword()[0]);
-		
-		//Test clear
-		dm.clear();
-		assertNull(dm.getFileName());
-		assertFalse(dm.isModified());
-		assertNull(dm.getPassword());
-		
-		//As the data model is empty, the Entry list methods are not tested.
-		
+    private DataModel dm;
+	@Before
+	public void setUp() {
+		dm = DataModel.getInstance();
 	}
+	
+	@Test
+	public void shouldTestEntries() {
+	    //Test entries
+        dm.setEntries(new Entries());       
+        assertEquals(new ArrayList<Entry>(), dm.getEntries().getEntry());
+	}
+	
+	@Test
+    public void shouldTestFilename() {
+	    //Test filename
+        String filename = "empty";
+        dm.setFileName(filename);
+        assertEquals(filename, dm.getFileName());
+    }
+	
+	@Test
+    public void shouldTestModifiedFlag() {
+        //Test modified flag
+        dm.setModified(true);
+        assertTrue(dm.isModified());
+    }
+	
+	@Test
+    public void shouldTestPassword() {
+        //Test password
+        byte[] passArray = new byte[1];
+        dm.setPassword(passArray);
+        assertEquals(passArray[0], dm.getPassword()[0]);
+    }
+	
+	@Test
+    public void shouldTestClear() {
+        //Test clear
+        dm.clear();
+        assertNull(dm.getFileName());
+        assertFalse(dm.isModified());
+        assertNull(dm.getPassword());
+    }
 
 	/*@Test
 	public void shouldExerciseEncryptedEmptyEntriesRepositoryTest() throws IOException, DocumentProcessException {
