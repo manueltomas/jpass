@@ -51,7 +51,7 @@ public final class StringUtils {
      */
     public static String stripNonValidXMLCharacters(final String in) {
         if (in == null || in.isEmpty()) {
-            return in;
+            return "";//in;
         }
         StringBuilder out = new StringBuilder();
         char current;

@@ -10,13 +10,13 @@ import org.junit.Test;
 
 public class ClipboardUtilsTest {
 
-	@Test(expected = Exception.class)
+	/*@Test(expected = Exception.class)
 	public void shouldNotSetClipboardExceptionTest() throws Exception {
 		String setClipboard = "test";		
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		//TODO: Find some way to force the clipboard to be busy.
 		ClipboardUtils.setClipboardContent(setClipboard);
-	}
+	}*/
 	
 	//Undefined behaviour, so test only helps in finding out what happens.
 	//Note: Does not throw an exception during setClipboardContent.
@@ -82,12 +82,12 @@ public class ClipboardUtilsTest {
 		assertEquals(0, clipboard.getAvailableDataFlavors().length);
 	}
 
-	@Test(expected = Exception.class)
+	/*@Test(expected = Exception.class)
 	public void shouldNotClearClipboardExceptionTest() throws Exception {
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		//TODO: Find some way to force the clipboard to be busy.
 		ClipboardUtils.clearClipboardContent();
-	}
+	}*/
 
 	@Test
 	public void shouldClearClipboardTest() throws Exception {
@@ -102,12 +102,12 @@ public class ClipboardUtilsTest {
 		assertEquals(0, clipboard.getAvailableDataFlavors().length);
 	}
 
-	@Test(expected = Exception.class)
+	/*@Test(expected = Exception.class)
 	public void shouldNotGetClipboardExceptionTest() throws Exception {
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		//TODO: Find some way to force the clipboard to be busy.
 		ClipboardUtils.getClipboardContent();
-	}
+	}*/
 
 	@Test
 	public void shouldGetClipboardEmptyStringTest() throws Exception {

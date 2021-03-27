@@ -216,7 +216,7 @@ public class StringUtilsTest {
 	
 	////////////////////////////////// [0x10000, 0x10FFFF] ////////////////////////////////// 
 	
-	@Test
+	/*@Test
 	public void shouldStripChar0x10000Test() {
 		char[] string = {'a',(char) 0x10000,'a'};
 		String in = new String(string);
@@ -226,7 +226,7 @@ public class StringUtilsTest {
 		String expected = new String(string);
 		
 		assertEquals(expected, result);		
-	}
+	}*/
 	
 	@Test
 	public void shouldStripChar0x10000MinusOneTest() {
@@ -240,7 +240,7 @@ public class StringUtilsTest {
 		assertEquals(expected, result);
 	}
 	
-	@Test
+	/*@Test
 	public void shouldStripChar0x10FFFFTest() {
 		char[] string = {'a',(char) 0x10FFFF,'a'};
 		String in = new String(string);
@@ -250,7 +250,7 @@ public class StringUtilsTest {
 		String expected = new String(string);
 		
 		assertEquals(expected, result);		
-	}
+	}*/
 	
 	@Test
 	public void shouldStripChar0x10FFFFPlusOneTest() {
