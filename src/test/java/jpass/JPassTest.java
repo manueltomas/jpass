@@ -7,7 +7,7 @@ import org.junit.Test;
 public class JPassTest {
 
     @Test
-    public void test() {
+    public void mainTest() {
         JPass.main(new String[] {});
     }
 
