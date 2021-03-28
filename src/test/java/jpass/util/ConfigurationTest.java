@@ -49,11 +49,11 @@ public class ConfigurationTest {
 	public void shouldTestClearOnExitEnabled() {
 	    assertEquals(true, cfg.is("clear.clipboard.on.exit.enabled", false));
 	}
-//	@Test
-//    public void shouldTestDateFormat() {
-//        assertEquals(DateUtils.createFormatter("E dd-MM-yyyy"), 
-//                DateUtils.createFormatter(cfg.get("date.format", "yyyy-MM-dd")));
-//    }
+	@Test
+    public void shouldTestDateFormat() {
+        assertEquals("E dd-MM-yyyy", 
+                cfg.get("date.format", "yyyy-MM-dd"));
+    }
 	@Test
     public void shouldTestDefPassLen() {
         assertEquals(new Integer(10), 
