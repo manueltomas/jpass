@@ -45,3 +45,4 @@ nbdist/
 nb-configuration.xml
 /boo.jpass
 /many.jpass
+/spotbugs/

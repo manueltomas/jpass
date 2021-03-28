@@ -62,10 +62,13 @@ public class SpringUtilities {
         SpringLayout layout;
         try {
             layout = (SpringLayout) parent.getLayout();
-        } catch (ClassCastException exc) {
+            parent.getComponent(rows*cols-1);
+        } catch (ClassCastException exc ) {
             return;
+        } catch (ArrayIndexOutOfBoundsException exception) {
+            throw new ArrayIndexOutOfBoundsException("Either the container is empty or the "
+                    + "grid size is larger than the number of elements!");
         }
-
         Spring xPadSpring = Spring.constant(xPad);
         Spring yPadSpring = Spring.constant(yPad);
         Spring initialXSpring = Spring.constant(initialX);
@@ -147,10 +150,15 @@ public class SpringUtilities {
         SpringLayout layout;
         try {
             layout = (SpringLayout) parent.getLayout();
+            parent.getComponent(rows*cols-1);
         } catch (ClassCastException exc) {
             return;
+        } catch (ArrayIndexOutOfBoundsException exception) {
+            throw new ArrayIndexOutOfBoundsException("Either the container is empty or the "
+                    + "grid size is larger than the number of elements!");
         }
-
+        //when parent is empty
+        parent.getComponent(rows*cols-1);
         // Align all cells in each column and make them the same width.
         Spring x = Spring.constant(initialX);
         for (int c = 0; c < cols; c++) {

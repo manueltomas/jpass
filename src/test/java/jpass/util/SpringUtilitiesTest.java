@@ -22,7 +22,7 @@ public class SpringUtilitiesTest {
 	
 	@Test
 	public void shouldNotWorkZeroAreaSizeTest() {
-		assertThrows(NullPointerException.class, () -> {
+		assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
 			Panel container = new Panel();
 			container.add(new Button("Button 1"));
 			container.setLayout(new SpringLayout());
@@ -66,24 +66,24 @@ public class SpringUtilitiesTest {
 	
 	//////////////////////////////////COMPACT GRID TESTS//////////////////////////////////
 	
-	/*@Test
+	@Test
 	public void shouldNotWorkEmptyContainerCompactTest() {
 		assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
 			Panel container = new Panel();
 			container.setLayout(new SpringLayout());
-			SpringUtilities.makeCompactGrid(container, 0, 0, 0, 0, 0, 0);
+			SpringUtilities.makeCompactGrid(container, 1, 1, 0, 0, 0, 0);
 		});
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void shouldNotWorkZeroAreaSizeCompactTest() {
-		assertThrows(NullPointerException.class, () -> {
+		assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
 			Panel container = new Panel();
 			container.add(new Button("Button 1"));
 			container.setLayout(new SpringLayout());
 			SpringUtilities.makeCompactGrid(container, 0, 0, 0, 0, 0, 0);
 		});
-	}*/
+	}
 	
 	@Test
 	public void shouldWorkPositiveAreaSizeCompactTest() {

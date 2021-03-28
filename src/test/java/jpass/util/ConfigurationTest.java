@@ -1,5 +1,6 @@
 package jpass.util;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
@@ -39,5 +40,33 @@ public class ConfigurationTest {
         //Test Boolean
         Boolean defaultBoolean = false;
         assertEquals(defaultBoolean, cfg.is(key, defaultBoolean));
+    }
+	@Test
+	public void shouldTestDarkModeEnabled() {
+	    assertEquals(true, cfg.is("ui.theme.dark.mode.enabled", false));
+	}
+	@Test
+	public void shouldTestClearOnExitEnabled() {
+	    assertEquals(true, cfg.is("clear.clipboard.on.exit.enabled", false));
+	}
+//	@Test
+//    public void shouldTestDateFormat() {
+//        assertEquals(DateUtils.createFormatter("E dd-MM-yyyy"), 
+//                DateUtils.createFormatter(cfg.get("date.format", "yyyy-MM-dd")));
+//    }
+	@Test
+    public void shouldTestDefPassLen() {
+        assertEquals(new Integer(10), 
+                cfg.getInteger("default.password.generation.length", 14));
+    }
+	private static final String[] DEFAULT_DETAILS = {
+	        "Title",
+	        "Created",
+	        "Modified"
+	    };
+	@Test
+    public void shouldTestEntryDetails() {
+        assertArrayEquals(new String[] {"TITLE", "MODIFIED"}, 
+                cfg.getArray("entry.details", DEFAULT_DETAILS));
     }
 }
