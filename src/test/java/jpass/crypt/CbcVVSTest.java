@@ -85,22 +85,22 @@ public class CbcVVSTest {
     }
     
     @Test
-    public void shouldNotEncrypt() throws DecryptException, IOException {
+    public void shouldNotEncryptNull() throws DecryptException, IOException {
         _encrypt.encrypt(null);
         assertArrayEquals("".getBytes(), _encrypted.toByteArray());
     }
     @Test
-    public void shouldNotEncryptSize() throws DecryptException, IOException {
+    public void shouldNotEncryptSizeNull() throws DecryptException, IOException {
         _encrypt.encrypt(null,0);
         assertArrayEquals("".getBytes(), _encrypted.toByteArray());
     }
     @Test
-    public void shouldNotDecrypt() throws DecryptException, IOException {
+    public void shouldNotDecryptNull() throws DecryptException, IOException {
         _decrypt.decrypt(null);
         assertArrayEquals("".getBytes(), _decrypted.toByteArray());
     }
     @Test
-    public void shouldNotDecryptSize() throws DecryptException, IOException {
+    public void shouldNotDecryptSizeNull() throws DecryptException, IOException {
         _decrypt.decrypt(null,0);
         assertArrayEquals("".getBytes(), _decrypted.toByteArray());
     }
