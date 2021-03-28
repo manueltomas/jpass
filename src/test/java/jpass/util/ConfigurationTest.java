@@ -43,21 +43,21 @@ public class ConfigurationTest {
     }
 	@Test
 	public void shouldTestDarkModeEnabled() {
-	    assertEquals(true, cfg.is("ui.theme.dark.mode.enabled", false));
+	    assertEquals(false, cfg.is("ui.theme.dark.mode.enabled", true));
 	}
 	@Test
 	public void shouldTestClearOnExitEnabled() {
-	    assertEquals(true, cfg.is("clear.clipboard.on.exit.enabled", false));
+	    assertEquals(false, cfg.is("clear.clipboard.on.exit.enabled", true));
 	}
 	@Test
     public void shouldTestDateFormat() {
-        assertEquals("E dd-MM-yyyy", 
-                cfg.get("date.format", "yyyy-MM-dd"));
+        assertEquals("yyyy-MM-dd", 
+                cfg.get("date.format", "dd-MM-yyyy"));
     }
 	@Test
     public void shouldTestDefPassLen() {
-        assertEquals(new Integer(10), 
-                cfg.getInteger("default.password.generation.length", 14));
+        assertEquals(new Integer(14), 
+                cfg.getInteger("default.password.generation.length", 10));
     }
 	private static final String[] DEFAULT_DETAILS = {
 	        "Title",

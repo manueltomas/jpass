@@ -336,4 +336,26 @@ public class StringUtilsTest {
 		assertTrue(expected);
 		
 	}
+	
+	@Test
+	public void shouldStripStringTest() {
+	    String in = "Lorem ipsum";
+	    String result = StringUtils.stripString(in);
+	    assertEquals(in, result);
+	}
+	
+	@Test
+    public void shouldStripStringSmallerLenStringTest() {
+        String in = "Lorem ipsum";
+        int len = 5;
+        String result = StringUtils.stripString(in,len);
+        assertEquals("Lorem...", result);
+    }
+	@Test
+    public void shouldStripNullStringTest() {
+        String in = null;
+        int len = 5;
+        String result = StringUtils.stripString(in,len);
+        assertEquals(null, result);
+    }
 }

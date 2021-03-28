@@ -59,6 +59,31 @@ public class DataModelTest {
         assertFalse(dm.isModified());
         assertNull(dm.getPassword());
     }
+	
+	@Test
+    public void shouldTestEntryByTitle() {
+        //Test clear
+        dm.clear();
+        String title = "xpto";
+        Entry entry = new Entry();
+        entry.setTitle(title);
+        Entries entries = new Entries();
+        entries.getEntry().add(entry);
+        dm.setEntries(entries);  
+        assertEquals(dm.getEntryByTitle(title), entry);
+    }
+	@Test
+    public void shouldNotTestEntryByTitle() {
+        //Test clear
+        dm.clear();
+        String title = "xpto";
+        Entry entry = new Entry();
+        entry.setTitle(title);
+        Entries entries = new Entries();
+        entries.getEntry().add(entry);
+        dm.setEntries(entries);  
+        assertEquals(dm.getEntryByTitle("a"), null);
+    }
 
 	/*@Test
 	public void shouldExerciseEncryptedEmptyEntriesRepositoryTest() throws IOException, DocumentProcessException {

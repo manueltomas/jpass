@@ -126,4 +126,13 @@ public class ClipboardUtilsTest {
 		
 		assertEquals(toGet, ClipboardUtils.getClipboardContent());
 	}
+	
+	@Test
+    public void shouldSetNullClipboardTest() throws Exception {
+        //TODO: Set clipboard text without utilising other functions, so the test remains unitary.
+        String toGet = null;  
+        ClipboardUtils.setClipboardContent(toGet);
+        
+        assertEquals(toGet, ClipboardUtils.getClipboardContent());
+    }
 }

@@ -2,6 +2,9 @@ package jpass.util;
 
 import static org.junit.Assert.assertTrue;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
 import org.junit.Test;
@@ -42,6 +45,16 @@ public class CryptUtilsTest {
 		//byte[] expected = toByteArray("7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069");
 		assertTrue(Arrays.equals(result, expected));
 	}
+	
+	@Test
+    public void shouldGetPKCS5Sha256HashNotEmptyTest() throws Exception {
+        char[] text = "Hello World!".toCharArray();
+        
+        byte[] result = CryptUtils.getPKCS5Sha256Hash(text);
+        byte[] expected = hash(new String(text), 1000);
+        //byte[] expected = toByteArray("7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069");
+        assertTrue(Arrays.equals(result, expected));
+    }
 
 	private static byte[] toByteArray(String s) {
 		
@@ -54,5 +67,16 @@ public class CryptUtilsTest {
 			result[i/2] = b;
 		}
 		return result;
+	}
+	
+	private byte[] hash(String text, int iteration) throws NoSuchAlgorithmException {
+	    MessageDigest digest = MessageDigest.getInstance("SHA-256");
+	    byte[] resultAux = digest.digest(
+	            text.getBytes(StandardCharsets.UTF_8));
+	    for(int i = 0; i < iteration; i++) {
+	        resultAux = digest.digest(resultAux);
+	    }
+        return resultAux;
+
 	}
 }
