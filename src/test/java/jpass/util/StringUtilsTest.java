@@ -6,6 +6,19 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class StringUtilsTest {
+	
+///////////////////////////////////DATAFLOW TESTING///////////////////////////////////
+	@Test
+	public void shouldStripTwoInvalidCharInARowTest() {
+		char[] string = {'a',(char) (0x9-1),(char) (0x9-1),'a'};
+		String in = new String(string);
+		
+		String result = StringUtils.stripNonValidXMLCharacters(in);
+		
+		String expected = "a??a";
+		
+		assertEquals(expected, result);
+	}
 
 ///////////////////////////////////BOUNDARY VALUE ANALYSIS///////////////////////////////////
 	@Test
