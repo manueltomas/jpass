@@ -85,17 +85,17 @@ public final class CryptUtils {
      * @return hash of the password
      * @throws Exception if error occurred
      */
-    private static byte[] getSha256Hash(final char[] text, final int iteration) throws Exception {
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        md.reset();
+    private static byte[] getSha256Hash(final char[] text, final int iteration) throws Exception {//1
+        MessageDigest md = MessageDigest.getInstance("SHA-256");//2
+        md.reset();//3
         // md.update(salt);
-        byte[] bytes = new String(text).getBytes(StandardCharsets.UTF_8);
-        byte[] digest = md.digest(bytes);
-        for (int i = 0; i < iteration; i++) {
-            md.reset();
-            digest = md.digest(digest);
+        byte[] bytes = new String(text).getBytes(StandardCharsets.UTF_8);//4
+        byte[] digest = md.digest(bytes);//5
+        for (int i = 0; i < iteration; i++) {//6 7 10
+            md.reset();//8
+            digest = md.digest(digest);//9
         }
-        return digest;
+        return digest; //11
     }
 
     /**

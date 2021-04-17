@@ -170,17 +170,17 @@ public class Cbc {
      * @param length number of {@code byte}s that should be encrypted
      * @throws IOException if the writing fails
      */
-    public void encrypt(byte[] data, int length) throws IOException {
-        if (data == null || length <= 0) {
-            return;
+    public void encrypt(byte[] data, int length) throws IOException {// 1
+        if (data == null || length <= 0) { // 2
+            return; // 3
         }
 
-        for (int i = 0; i < length; ++i) {
-            this._overflow[this._overflowUsed++] = data[i];
-            if (this._overflowUsed == BLOCK_SIZE) {
-                encryptBlock(this._overflow, this._outBuffer);
-                this._output.write(this._outBuffer);
-                this._overflowUsed = 0;
+        for (int i = 0; i < length; ++i) { // 4 5 11
+            this._overflow[this._overflowUsed++] = data[i]; // 6
+            if (this._overflowUsed == BLOCK_SIZE) { // 7
+                encryptBlock(this._overflow, this._outBuffer); // 8
+                this._output.write(this._outBuffer); // 9
+                this._overflowUsed = 0; // 10
             }
         }
     }

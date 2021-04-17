@@ -116,5 +116,16 @@ public class CbcVVSTest {
         _decrypt.decrypt(source,-1);
         assertArrayEquals("".getBytes(), _decrypted.toByteArray());
     }
+    
+    @Test
+    public void shouldNorEncryptBiggerThan16() throws DecryptException, IOException {
+        byte[] source = "abcdefghijklmnopq".getBytes();
+        _encrypt.encrypt(source);
+        _encrypt.finishEncryption();
+        
+        _decrypt.decrypt(_encrypted.toByteArray());
+        _decrypt.finishDecryption();
+        assertArrayEquals(source, _decrypted.toByteArray());
+    }
 
 }
