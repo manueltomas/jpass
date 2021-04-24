@@ -169,6 +169,34 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+			    <groupId>org.pitest</groupId>
+			    <artifactId>pitest-maven</artifactId>
+			    <version>1.2.0</version>
+			    <configuration>
+			        <targetClasses>
+			            <param>jpass.crypt*</param>
+			            <param>jpass.data*</param>
+			            <param>jpass.util*</param>
+			            <param>jpass.xml*</param>
+			        </targetClasses>
+			        <targetTests>
+			            <param>jpass*</param>
+			        </targetTests>
+			    </configuration>
+			    <executions>
+					<execution>
+						<configuration>
+					 		<reportsDirectory>pit-reports</reportsDirectory>
+				        </configuration>
+						<phase>test</phase>
+					    <goals>
+					      	<goal>mutationCoverage</goal>
+					      	<!-- <goal>gui</goal>-->
+					    </goals>
+					</execution>
+				</executions>
+			 </plugin>
         </plugins>
     </build>
 </project>
