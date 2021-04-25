@@ -85,6 +85,18 @@ public class CbcVVSTest {
     }
     
     @Test
+    public void shouldNotDecryptUnencryptedMessageLimitChar() throws DecryptException, IOException {
+        assertThrows(DecryptException.class, () -> {
+            char[] chars = {'a','b','c','d','e','f','g','h','i','j','k','l',
+                    'm','n','o', 'p'};
+            byte[] source = new String(chars).getBytes();
+    
+            _decrypt.decrypt(source);
+            _decrypt.finishDecryption();
+        });
+    }
+    
+    @Test
     public void shouldNotEncryptNull() throws DecryptException, IOException {
         _encrypt.encrypt(null);
         assertArrayEquals("".getBytes(), _encrypted.toByteArray());
@@ -105,6 +117,18 @@ public class CbcVVSTest {
         assertArrayEquals("".getBytes(), _decrypted.toByteArray());
     }
     @Test
+    public void shouldNotEncryptZeroSize() throws DecryptException, IOException {
+        byte[] source = "abcdefghijklmnop".getBytes();
+        _encrypt.encrypt(source,0);
+        assertArrayEquals("".getBytes(), _encrypted.toByteArray());
+    }
+    @Test
+    public void shouldNotDecryptZeroSize() throws DecryptException, IOException {
+        byte[] source = "abcdefghijklmnop".getBytes();
+        _decrypt.decrypt(source,0);
+        assertArrayEquals("".getBytes(), _decrypted.toByteArray());
+    }
+    @Test
     public void shouldNotEncryptNegativeSize() throws DecryptException, IOException {
         byte[] source = "abcdefghijklmnop".getBytes();
         _encrypt.encrypt(source,-1);
@@ -115,6 +139,16 @@ public class CbcVVSTest {
         byte[] source = "abcdefghijklmnop".getBytes();
         _decrypt.decrypt(source,-1);
         assertArrayEquals("".getBytes(), _decrypted.toByteArray());
+    }
+    @Test
+    public void shouldEncryptSizeOne() throws DecryptException, IOException {
+        byte[] source = "abcdefghijklmnop".getBytes();
+        _encrypt.encrypt(source,1);
+        _encrypt.finishEncryption();
+        
+        _decrypt.decrypt(_encrypted.toByteArray());
+        _decrypt.finishDecryption();
+        assertArrayEquals("a".getBytes(), _decrypted.toByteArray());
     }
     
     @Test

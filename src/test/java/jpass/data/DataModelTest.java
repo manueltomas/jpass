@@ -1,5 +1,6 @@
 package jpass.data;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -58,6 +59,7 @@ public class DataModelTest {
         assertNull(dm.getFileName());
         assertFalse(dm.isModified());
         assertNull(dm.getPassword());
+        assertTrue(dm.getEntries().getEntry().isEmpty());
     }
 	
 	@Test
