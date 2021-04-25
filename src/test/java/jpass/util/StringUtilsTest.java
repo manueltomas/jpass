@@ -371,4 +371,12 @@ public class StringUtilsTest {
         String result = StringUtils.stripString(in,len);
         assertEquals(null, result);
     }
+	
+	@Test
+    public void shouldStripStringSameLenStringTest() {
+        String in = "Lorem";
+        int len = 5;
+        String result = StringUtils.stripString(in,len);
+        assertEquals("Lorem", result);
+    }
 }
