@@ -107,6 +107,11 @@ public class CbcVVSTest {
         assertArrayEquals("".getBytes(), _encrypted.toByteArray());
     }
     @Test
+    public void shouldNotEncryptSizePositiveNull() throws DecryptException, IOException {
+        _encrypt.encrypt(null,1);
+        assertArrayEquals("".getBytes(), _encrypted.toByteArray());
+    }
+    @Test
     public void shouldNotDecryptNull() throws DecryptException, IOException {
         _decrypt.decrypt(null);
         assertArrayEquals("".getBytes(), _decrypted.toByteArray());

@@ -55,6 +55,12 @@ public class DataModelTest {
 	@Test
     public void shouldTestClear() {
         //Test clear
+        String title = "xpto";
+        Entry entry = new Entry();
+        entry.setTitle(title);
+        Entries entries = new Entries();
+        entries.getEntry().add(entry);
+        dm.setEntries(entries);
         dm.clear();
         assertNull(dm.getFileName());
         assertFalse(dm.isModified());
